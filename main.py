@@ -33,6 +33,9 @@ class ChatbotGUI:
         # Current anthropomorphization level
         self.current_level = 2  # Start at professional level
         
+        # Emotional responses limit
+        self.emotional_responses_left = 5
+        
         # Conversation history
         self.conversation_history = []
         
@@ -74,6 +77,14 @@ class ChatbotGUI:
                                       text=f"Current Level: {config.SLIDER_LABELS[self.current_level]}",
                                       font=("Arial", 10, "italic"))
         self.slider_label.grid(row=1, column=0, pady=(5, 0))
+        
+        # Limit checkbox
+        self.limit_enabled = tk.BooleanVar(value=True)
+        self.limit_checkbox = ttk.Checkbutton(slider_frame, 
+                                            text="Enable Emotional Response Limits",
+                                            variable=self.limit_enabled,
+                                            command=self.toggle_limit)
+        self.limit_checkbox.grid(row=2, column=0, pady=(5, 0))
         
         # Chat display
         chat_frame = ttk.LabelFrame(main_frame, text="Conversation", padding="10")
@@ -178,6 +189,17 @@ class ChatbotGUI:
                 "content": user_message
             })
             
+            # Check emotional responses limit if enabled
+            if self.limit_enabled.get() and self.current_level >= 3:
+                if self.emotional_responses_left <= 0:
+                    messagebox.showwarning("Limit Reached", "You have used all emotional responses for today. Using professional level instead.")
+                    self.current_level = 2
+                    self.slider.set(2)
+                    self.slider_label.config(text=f"Current Level: {config.SLIDER_LABELS[2]}")
+                else:
+                    self.emotional_responses_left -= 1
+                    self.display_system_message(f"Emotional responses left: {self.emotional_responses_left}")
+            
             # Prepare messages for API call
             messages = [
                 {"role": "system", "content": config.SYSTEM_PROMPTS[self.current_level]}
@@ -222,6 +244,15 @@ class ChatbotGUI:
         self.chat_display.config(state=tk.DISABLED)
         self.display_system_message(f"Chat cleared. Current level: {self.current_level} - "
                                    f"{config.SLIDER_LABELS[self.current_level]}")
+                                   
+    def toggle_limit(self):
+        """Toggle the emotional response limit"""
+        status = "enabled" if self.limit_enabled.get() else "disabled"
+        if status == "enabled":
+            self.display_system_message(f"Emotional response limits {status}, {self.emotional_responses_left} emotional responses left")
+        else:
+            self.display_system_message(f"Emotional response limits {status}")
+        
 
 
 def main():
