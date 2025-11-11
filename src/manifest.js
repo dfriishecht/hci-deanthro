@@ -26,8 +26,14 @@ export default defineManifest({
   },
   content_scripts: [
     {
-      matches: ['http://*/*', 'https://*/*'],
+      matches: [
+        'https://chat.openai.com/*',
+        'https://chatgpt.com/*',
+        'https://*.chat.openai.com/*',
+        'https://*.chatgpt.com/*'
+      ],
       js: ['src/contentScript/index.js'],
+      run_at: 'document_idle',
     },
   ],
   side_panel: {
