@@ -1,5 +1,5 @@
 .ext-content {
-    background-color: orange;
+    background-color: #FF9553;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -13,10 +13,40 @@
 .setting-content {
     background-color: white;
     border-radius: 10px;
-    padding: 10px;
+    padding: 14px;
     height: 400px;
 }
 
 .setting-content p {
     color: black;
+}
+
+.sentiment-level-container {
+    margin-bottom: 28px;
+}
+
+.sentiment-labels {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.output-format-container label{
+    color: black;
+    display: flex;
+    flex-direction: column;
+}
+
+.output-format-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.emotive-value {
+    text-align: center;
+    font-size: 16px;
+    border: black solid 2px;
+    border-radius: 100px;
+    padding: 4px;
 }
