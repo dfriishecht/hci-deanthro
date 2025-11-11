@@ -17,22 +17,19 @@
     height: 400px;
 }
 
-.setting-content p {
-    color: black;
-}
-
-.sentiment-level-container {
-    margin-bottom: 28px;
+.sentiment-slider {
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .sentiment-labels {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-top: -5px;
 }
 
 .output-format-container label{
-    color: black;
     display: flex;
     flex-direction: column;
 }
@@ -43,10 +40,49 @@
     align-items: center;
 }
 
+input[type="checkbox"]:hover {
+    cursor: pointer;
+}
+
 .emotive-value {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     font-size: 16px;
     border: black solid 2px;
     border-radius: 100px;
     padding: 4px;
+}
+
+.grey-btn {
+    background-color: #D9D9D9;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 14px;
+    padding-right: 14px;
+    border-radius: 20px;
+    margin-top: 12px;
+    border-color: transparent;
+    color: black;
+}
+
+.grey-btn:hover {
+    cursor: pointer;
+    background-color: #FF9553;
+}
+
+.grey-btn:active {
+    box-shadow: 3px 3px 5px #D9D9D9;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (prefers-color-scheme: dark) {
+  .setting-content {
+    background-color: #242424; /* or another dark shade */
+  }
 }
