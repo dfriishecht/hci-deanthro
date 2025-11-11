@@ -1,0 +1,22 @@
+.ext-content {
+    background-color: orange;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.ext-name {
+    color: black;
+    text-align: center;
+}
+
+.setting-content {
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    height: 400px;
+}
+
+.setting-content p {
+    color: black;
+}
