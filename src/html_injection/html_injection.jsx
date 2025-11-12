@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { MockPopup } from './mock_popup';
+// import { MainSettings } from '../components/Main'
+import MainSettings from '../components/Main'
 import './styles/html_injection.css'
 
 export const HtmlInjection = () => {
@@ -23,8 +25,9 @@ export const HtmlInjection = () => {
         <button onClick={handleClick} type="button"> 
             Click Me! State: {extension_state}
         </button>
-
-        {extension_state == "On" && <MockPopup />}      
+        
+        {extension_state == "On" && <MainSettings />}
+        {/* {extension_state == "On" && <MockPopup />}       */}
         </>
     )
 }
