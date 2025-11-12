@@ -22,8 +22,8 @@ export const HtmlInjection = () => {
         <>
         {/* <h1> Hi HI HI </h1> */}
 
-        <button onClick={handleClick} type="button"> 
-            Click Me! State: {extension_state}
+        <button onClick={handleClick} type="button" id="popup"> 
+            De-anthro.ai
         </button>
         
         {extension_state == "On" && <MainSettings />}
