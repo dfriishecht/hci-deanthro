@@ -1,10 +1,16 @@
-h1{
+/* h1{
     color: rgb(0, 0, 0);
     text-align: right;
     margin: 5px;
-}
+} */
 
 #popup{
-    background-color: rgb(255, 183, 0);
-    padding: 5px;
+    background-color: rgb(188, 136, 15);
+    padding: 10px;
+    /* display: flex;
+    justify-content: right; */
+    position: fixed;
+    top: 50px;
+    right: 50px;
+    border-radius: 50%;
 }
