@@ -5,31 +5,51 @@ import './styles/Main.css';
 import Slider from '@rc-component/slider';
 import '@rc-component/slider/assets/index.css';
 
+import TooltipIcon from './TooltipIcon';
 
-function SettingsOne() {
+
+function SettingsOne({ goToPage }) {
 
     const [sentimentValue, setSentimentValue] = useState(0)
-    const [emotiveValue, setEmotiveValue] = useState(5)
+    const [emotiveValue, setEmotiveValue] = useState("None")
+    const [formatValue, setFormatValue] = useState(null);
 
+    // fetch Chrome user data and populate settings
     useEffect(() => {
-        chrome.storage.sync.get(["sentimentValue"], (result) => {
+        chrome.storage.sync.get(
+            ["sentimentValue", "formatValue"],
+            (result) => {
             if (result.sentimentValue !== undefined) {
                 setSentimentValue(result.sentimentValue);
             }
-        });
+
+            if (result.formatValue !== undefined) {
+                setFormatValue(result.formatValue);
+            }
+            }
+        );
     }, []);
 
     const handleSentiment = (value) => {
-        setSentimentValue(value); // update React state
+        const newValue = value; // update React state
+
+        setSentimentValue(newValue);
+        chrome.storage.sync.set({ sentimentValue: newValue }); // update Chrome user data
     };
 
-    const handleSave = () => {
-        chrome.storage.sync.set({ sentimentValue });
+    const handleFormat = (value) => {
+        const newValue = (formatValue === value ? null : value); // update React state
+
+        setFormatValue(newValue);
+        chrome.storage.sync.set({ formatValue: newValue }); // update Chrome user data
     };
 
     return <>
         <div className='sentiment-level-container'>
-            <h3>Sentiment Level:</h3>
+            <div className='feature-head'>
+                <h3>Sentiment Level:</h3>
+                <TooltipIcon text="Reduce the amount of sentiment from generated responses." />
+            </div>
             <div className='sentiment-slider'>
                 <Slider
                     min={0}
@@ -47,28 +67,49 @@ function SettingsOne() {
                 <p>Standard</p>
             </div>
         </div>
-        <div className='emotive-count-container'>
-            <h3>Emotive Responses Remaining:</h3>
+        {/* <div className='emotive-count-container'>
+            <div className='feature-head'>
+                <h3>Emotive Responses Remaining:</h3>
+                <TooltipIcon text="blah blah"/>
+            </div>
             <p className='emotive-value'>{`${emotiveValue}`}</p>
-        </div>
+        </div> */}
         <div className='output-format-container'>
-            <h3>Output Format:</h3>
-            <div className='output-format-item'>
-                <input type='checkbox' id='bullet-list'></input>
-                <label for='bullet-list'>Bullet Point List</label>
+            <div className='feature-head'>
+                <h3>Output Format:</h3>
+                <TooltipIcon text="Alter response format to match selected option." />
             </div>
             <div className='output-format-item'>
-                <input type='checkbox' id='wiki'></input>
-                <label for='wiki'>Wikipedia-esque</label>
+                <input
+                    type="checkbox"
+                    id="bullet-list"
+                    checked={formatValue === "bullet"}
+                    onChange={() => handleFormat("bullet")}
+                />
+                <label htmlFor='bullet-list'>Bullet Point List</label>
             </div>
             <div className='output-format-item'>
-                <input type='checkbox' id='technical'></input>
-                <label for='technical'>Technical/professional</label>
+                <input
+                    type="checkbox"
+                    id="wiki"
+                    checked={formatValue === "wiki"}
+                    onChange={() => handleFormat("wiki")}
+                />
+                <label htmlFor='wiki'>Dictionary</label>
+            </div>
+            <div className='output-format-item'>
+                <input 
+                    type='checkbox' 
+                    id='technical'
+                    checked={formatValue === "technical"}
+                    onChange={() => handleFormat("technical")}
+                />
+                <label htmlFor='technical'>Technical/professional</label>
             </div>
         </div>
         <div className='footer'>
-            <button className='grey-btn'>Extra Settings</button>
-            <button className='grey-btn' onClick={handleSave}>
+            <button className='grey-btn' onClick={() => goToPage("two")}>Extra Settings</button>
+            <button className='grey-btn'>
                 Save
             </button>
         </div>
