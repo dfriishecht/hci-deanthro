@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 
 import './styles/Main.css';
 
+// import { FaCheck } from 'react-icons/fa';
+
 import Slider from '@rc-component/slider';
 import '@rc-component/slider/assets/index.css';
 
@@ -62,9 +64,15 @@ function SettingsOne({ goToPage }) {
                     min={0}
                     max={4}
                     dots={true}
+                    handleStyle={{ borderColor: "#FF9553" }}
+                    handleActiveStyle={{
+                        borderColor: "#FF9553",
+                        backgroundColor: "#FF9553",
+                        boxShadow: "0 0 0 8px #FF9553" // NOT WORKING
+                    }}
                     trackStyle={{ backgroundColor: "#FF9553" }}
                     dotStyle={{ borderColor: "#FF9553" }}
-                    activeDotStyle={{ borderColor: "#FF9553", backgroundColor: "FF9553" }}
+                    activeDotStyle={{ borderColor: "#FF9553" }}
                     value={sentimentValue}
                     onChange={handleSentiment}
                 />
@@ -117,7 +125,9 @@ function SettingsOne({ goToPage }) {
         <div className='footer'>
             <button className='grey-btn' onClick={() => goToPage("two")}>Extra Settings</button>
         </div>
-        <p className='saved-status'>{status === "saving" ? "Saving..." : "Saved"}</p>
+        <div className='saved-status'>
+            <p>{status === "saving" ? "Saving..." : "Saved"}</p>
+        </div>
     </>
 }
 

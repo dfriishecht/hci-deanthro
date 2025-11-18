@@ -14,11 +14,11 @@
     background-color: white;
     border-radius: 10px;
     padding: 14px;
-    height: 400px;
+    height: 260px;
     display: flex;
     flex-direction: column;
     /* Perhaps don't use this */
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
 }
 
 .feature-head {
@@ -53,6 +53,10 @@
 
 input[type="checkbox"]:hover {
     cursor: pointer;
+}
+
+input[type="checkbox"] {
+  accent-color: #FF9553; /* Sets the accent color to red */
 }
 
 .emotive-value {
@@ -90,6 +94,12 @@ input[type="checkbox"]:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.saved-status {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
 }
 
 @media (prefers-color-scheme: dark) {
