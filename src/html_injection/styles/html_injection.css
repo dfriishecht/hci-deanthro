@@ -5,12 +5,17 @@
 } */
 
 #popup{
-    background-color: rgb(188, 136, 15);
-    padding: 10px;
-    /* display: flex;
-    justify-content: right; */
+    background-image: url("./organisation-logo.png");
+    background-size: contain; /* scales image to button size */
+    width: 40px;
+    height: 40px;
+    /* background-color: #FF9553; */
+    /* padding: 5px; */
     position: fixed;
     top: 50px;
     right: 50px;
     border-radius: 50%;
+    border-color: white;
+    /* color: transparent;
+    font-weight: bold; */
 }

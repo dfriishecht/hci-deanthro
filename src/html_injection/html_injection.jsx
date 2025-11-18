@@ -22,12 +22,9 @@ export const HtmlInjection = () => {
         <>
         {/* <h1> Hi HI HI </h1> */}
 
-        <button onClick={handleClick} type="button" id="popup"> 
-            De-anthro.ai
-        </button>
+        <button onClick={handleClick} type="button" id="popup" aria-label='Extension Button'> </button>
         
         {extension_state == "On" && <MainSettings />}
-        {/* {extension_state == "On" && <MockPopup />}       */}
         </>
     )
 }
