@@ -1,21 +1,20 @@
-/* h1{
-    color: rgb(0, 0, 0);
-    text-align: right;
-    margin: 5px;
-} */
+h3 {
+  color: #000000;
+  /* text-transform: uppercase; */
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.2rem;
+  /* margin: 2rem auto; */
+}
 
 #popup{
-    background-image: url("./organisation-logo.png");
+    background-image: url("../assets/organisation-logo.png");
     background-size: contain; /* scales image to button size */
     width: 40px;
     height: 40px;
-    /* background-color: #FF9553; */
-    /* padding: 5px; */
     position: fixed;
     top: 50px;
-    right: 50px;
+    right: 10px;
     border-radius: 50%;
     border-color: white;
-    /* color: transparent;
-    font-weight: bold; */
 }

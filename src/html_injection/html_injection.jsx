@@ -1,6 +1,4 @@
 import { useState } from 'react';
-import { MockPopup } from './mock_popup';
-// import { MainSettings } from '../components/Main'
 import MainSettings from '../components/Main'
 import './styles/html_injection.css'
 
@@ -20,8 +18,6 @@ export const HtmlInjection = () => {
 
     return (
         <>
-        {/* <h1> Hi HI HI </h1> */}
-
         <button onClick={handleClick} type="button" id="popup" aria-label='Extension Button'> </button>
         
         {extension_state == "On" && <MainSettings />}
