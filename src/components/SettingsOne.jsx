@@ -9,6 +9,7 @@ import TooltipIcon from './TooltipIcon';
 
 
 function SettingsOne({ goToPage }) {
+    const [status, setStatus] = useState("saved");
 
     const [sentimentValue, setSentimentValue] = useState(0)
     const [emotiveValue, setEmotiveValue] = useState("None")
@@ -31,17 +32,23 @@ function SettingsOne({ goToPage }) {
     }, []);
 
     const handleSentiment = (value) => {
+        setStatus("saving");
         const newValue = value; // update React state
 
         setSentimentValue(newValue);
-        chrome.storage.sync.set({ sentimentValue: newValue }); // update Chrome user data
+        chrome.storage.sync.set({ sentimentValue: newValue }, () => {
+            setTimeout(() => setStatus("saved"), 300); // 0.3s delay
+        }); // update Chrome user data
     };
 
     const handleFormat = (value) => {
+        setStatus("saving");
         const newValue = (formatValue === value ? null : value); // update React state
 
         setFormatValue(newValue);
-        chrome.storage.sync.set({ formatValue: newValue }); // update Chrome user data
+        chrome.storage.sync.set({ formatValue: newValue }, () => {
+            setTimeout(() => setStatus("saved"), 300); // 0.3s delay
+        }); // update Chrome user data
     };
 
     return <>
@@ -109,10 +116,8 @@ function SettingsOne({ goToPage }) {
         </div>
         <div className='footer'>
             <button className='grey-btn' onClick={() => goToPage("two")}>Extra Settings</button>
-            <button className='grey-btn'>
-                Save
-            </button>
         </div>
+        <p className='saved-status'>{status === "saving" ? "Saving..." : "Saved"}</p>
     </>
 }
 
