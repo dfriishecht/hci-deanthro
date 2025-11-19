@@ -1,3 +1,6 @@
+import { useState, useEffect } from 'react'
+
+// import './Popup.css'
 import { useState, useEffect } from 'react';
 import './Popup.css';
 
