@@ -57,7 +57,7 @@ function SettingsOne({ goToPage }) {
         <div className='sentiment-level-container'>
             <div className='feature-head'>
                 <h3>Sentiment Level:</h3>
-                <TooltipIcon text="Reduce the amount of sentiment from generated responses." />
+                <TooltipIcon text="Sentiment is equal to anthropomorphic traits. Reduce sentiment from ChatGPT's standard response level sentiment." />
             </div>
             <div className='sentiment-slider'>
                 <Slider
@@ -82,13 +82,6 @@ function SettingsOne({ goToPage }) {
                 <p>Standard</p>
             </div>
         </div>
-        {/* <div className='emotive-count-container'>
-            <div className='feature-head'>
-                <h3>Emotive Responses Remaining:</h3>
-                <TooltipIcon text="blah blah"/>
-            </div>
-            <p className='emotive-value'>{`${emotiveValue}`}</p>
-        </div> */}
         <div className='output-format-container'>
             <div className='feature-head'>
                 <h3>Output Format:</h3>
@@ -96,7 +89,7 @@ function SettingsOne({ goToPage }) {
             </div>
             <div className='output-format-item'>
                 <input
-                    type="checkbox"
+                    type="radio"
                     id="bullet-list"
                     checked={formatValue === "bullet"}
                     onChange={() => handleFormat("bullet")}
@@ -105,21 +98,30 @@ function SettingsOne({ goToPage }) {
             </div>
             <div className='output-format-item'>
                 <input
-                    type="checkbox"
+                    type="radio"
                     id="wiki"
                     checked={formatValue === "wiki"}
                     onChange={() => handleFormat("wiki")}
                 />
-                <label htmlFor='wiki'>Dictionary</label>
+                <label htmlFor='wiki'>Dictionary like definition</label>
             </div>
             <div className='output-format-item'>
                 <input 
-                    type='checkbox' 
+                    type='radio' 
                     id='technical'
                     checked={formatValue === "technical"}
                     onChange={() => handleFormat("technical")}
                 />
-                <label htmlFor='technical'>Technical/professional</label>
+                <label htmlFor='technical'>Technical report</label>
+            </div>
+            <div className='output-format-item'>
+                <input 
+                    type='radio' 
+                    id='no'
+                    checked={formatValue === "no"}
+                    onChange={() => handleFormat("no")}
+                />
+                <label htmlFor='no'>None</label>
             </div>
         </div>
         <div className='footer'>

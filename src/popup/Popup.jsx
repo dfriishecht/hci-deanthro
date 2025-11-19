@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-import './Popup.css'
+// import './Popup.css'
 
 export const Popup = () => {
   const [count, setCount] = useState(0)
