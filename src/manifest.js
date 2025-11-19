@@ -40,7 +40,7 @@ export default defineManifest({
       matches: [],
     },
   ],
-  permissions: ['sidePanel', 'storage'],
+  permissions: ['sidePanel', 'storage', 'scripting', 'activeTab'],
   chrome_url_overrides: {
     newtab: 'newtab.html',
   },

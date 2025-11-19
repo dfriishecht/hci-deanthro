@@ -1,9 +1,8 @@
 .ext-content {
-    background-color: #FF9553;
+    background-color: orange;
     padding: 20px;
     display: flex;
     flex-direction: column;
-    border-radius: 10px;
 }
 
 .ext-name {
@@ -97,4 +96,11 @@ input[type="checkbox"]:hover {
   .setting-content {
     background-color: #242424; /* or another dark shade */
   }
+}
+    padding: 10px;
+    height: 400px;
+}
+
+.setting-content p {
+    color: black;
 }
