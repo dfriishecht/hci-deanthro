@@ -1,12 +1,12 @@
-import {defineManifest} from '@crxjs/vite-plugin'
+import { defineManifest } from '@crxjs/vite-plugin'
 
-import packageData from '../package.json' assert {type : 'json'}
+import packageData from '../package.json' assert {type: 'json'}
 
-                                                  const isDev = process.env.NODE_ENV == 'development'
+const isDev = process.env.NODE_ENV == 'development'
 
 export default defineManifest({
   name:
-      `${packageData.displayName || packageData.name}${isDev ? ` ➡️ Dev` : ''}`,
+    `${packageData.displayName || packageData.name}${isDev ? ` ➡️ Dev` : ''}`,
   description: packageData.description,
   version: packageData.version,
   manifest_version: 3,
@@ -44,9 +44,7 @@ export default defineManifest({
       run_at: 'document_idle',
     },
   ],
-  side_panel: {
-    default_path: 'sidepanel.html',
-  },
+
   web_accessible_resources: [
     {
       resources: [
@@ -60,8 +58,6 @@ export default defineManifest({
     'https://chat.openai.com/*', 'https://chatgpt.com/*',
     'https://*.chat.openai.com/*', 'https://*.chatgpt.com/*'
   ],
-  permissions: ['sidePanel', 'storage', 'scripting', 'activeTab', 'tabs'],
-  chrome_url_overrides: {
-    newtab: 'newtab.html',
-  },
+  permissions: ['storage', 'scripting', 'activeTab', 'tabs'],
+
 })
