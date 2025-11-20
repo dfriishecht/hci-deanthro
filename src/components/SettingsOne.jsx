@@ -15,6 +15,7 @@ function SettingsOne({ goToPage }) {
 
     const [enabled, setEnabled] = useState(true);
     const [sentimentValue, setSentimentValue] = useState(0); // Maps to anthropomorphize
+    const [emotiveValue, setEmotiveValue] = useState("None")
     const [formatValue, setFormatValue] = useState(null);
 
     // fetch Chrome user data and populate settings
@@ -90,6 +91,34 @@ function SettingsOne({ goToPage }) {
             </label>
         </div>
 
+            ["sentimentValue", "formatValue"],
+            (result) => {
+            if (result.sentimentValue !== undefined) {
+                setSentimentValue(result.sentimentValue);
+            }
+
+            if (result.formatValue !== undefined) {
+                setFormatValue(result.formatValue);
+            }
+            }
+        );
+    }, []);
+
+    const handleSentiment = (value) => {
+        const newValue = value; // update React state
+
+        setSentimentValue(newValue);
+        chrome.storage.sync.set({ sentimentValue: newValue }); // update Chrome user data
+    };
+
+    const handleFormat = (value) => {
+        const newValue = (formatValue === value ? null : value); // update React state
+
+        setFormatValue(newValue);
+        chrome.storage.sync.set({ formatValue: newValue }); // update Chrome user data
+    };
+
+    return <>
         <div className='sentiment-level-container'>
             <div className='feature-head'>
                 <h3>Sentiment Level:</h3>
@@ -107,8 +136,9 @@ function SettingsOne({ goToPage }) {
                         boxShadow: "0 0 0 8px #FF9553"
                     }}
                     trackStyle={{ backgroundColor: "#FF9553" }}
+                    trackStyle={{ backgroundColor: "#FF9553" }}
                     dotStyle={{ borderColor: "#FF9553" }}
-                    activeDotStyle={{ borderColor: "#FF9553" }}
+                    activeDotStyle={{ borderColor: "#FF9553", backgroundColor: "FF9553" }}
                     value={sentimentValue}
                     onChange={handleSentiment}
                 />

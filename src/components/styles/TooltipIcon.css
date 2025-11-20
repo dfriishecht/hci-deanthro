@@ -24,8 +24,7 @@
   transition: opacity 0.15s ease-in-out;
 
   position: absolute;
-  bottom: 125%;
-  /* Position above icon */
+  bottom: 125%; /* Position above icon */
   left: 50%;
   transform: translateX(-100%);
   width: max-content;

@@ -1,0 +1,20 @@
+h3 {
+  color: #000000;
+  /* text-transform: uppercase; */
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.2rem;
+  /* margin: 2rem auto; */
+}
+
+#popup{
+    background-image: url("../assets/organisation-logo.png");
+    background-size: contain; /* scales image to button size */
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    top: 50px;
+    right: 10px;
+    border-radius: 50%;
+    border-color: white;
+}
