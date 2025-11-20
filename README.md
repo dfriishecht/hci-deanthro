@@ -17,16 +17,16 @@ We want to create both a way to highlight and visualize the anthropomorphic qual
    - Click the DeAnthro AI icon in your Chrome toolbar
    - Toggle "Enable Extension" to ON
 
-2. **Configure Sentiment Level**
+2. **Configure Sentiment Level (Medium task)**
    - Use the "Sentiment Level" slider to control how much anthropomorphic language is in chatgpt's response, where "Standard" is the normal chatgpt output and "None" being without any anthropomorphic language.
 
-3. **Set Output Format**
+3. **Set Output Format (Medium Task)**
    - Choose from:
      - **Bullet Point List**: Formats responses as bullet points
      - **Dictionary**: Formats responses in dictionary style
      - **Technical/Professional**: Formats responses in a technical style
 
-4. **Use ChatGPT**
+4. **Use ChatGPT (Simple Task)**
    - Navigate to https://chatgpt.com
    - Start a conversation with ChatGPT
    - The extension will automatically detect responses and format to the selected settings
@@ -68,3 +68,19 @@ We want to create both a way to highlight and visualize the anthropomorphic qual
    - Enable "Developer mode" 
    - Click "Load unpacked"
    - Select the `build/` directory from this folder
+
+5. **Configure the extension**
+   - Click the DeAnthro AI icon in your Chrome toolbar
+   - Navigate to "Extra Settings"
+   - Enter your Google Gemini API key
+   - Return to "Main Settings" and ensure the extension is enabled
+
+## Limitations
+
+1. **API Dependency**: The extension requires a valid Google Gemini API key and active internet connection.
+
+2. **Only Works on ChatGPT**: The extension only functions on `chat.openai.com` and `chatgpt.com` domains.
+
+3. **No History Modification**: The extension only modifies new responses. It does not modify existing conversation history.
+
+4. **Browser Compatibility**: Currently only tested and designed for Google Chrome. May not work in other browsers without modifications.
