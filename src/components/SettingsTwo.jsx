@@ -39,6 +39,10 @@ function SettingsTwo({ goToPage }) {
                 onChange={handleApiKey}
                 placeholder="Enter API Key"
             />
+            <p style={{ fontSize: '12px', color: '#666', marginTop: '8px' }}>
+                Don't have an API key? Get one from <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer" style={{ color: '#FF9553' }}>Google AI Studio</a>.
+                This key is required to power the AI features. We don't provide the API keys for you, but Google's free tier should be enough for most users.
+            </p>
         </div>
 
 
