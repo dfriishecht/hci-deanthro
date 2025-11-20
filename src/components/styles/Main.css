@@ -31,7 +31,7 @@
     margin-bottom: 5px;
 }
 
-.feature-head > h3 {
+.feature-head>h3 {
     font-size: 1rem;
     font-weight: bold;
     line-height: 1.2rem;
@@ -65,7 +65,7 @@
     margin-left: 5px;
 }
 
-.output-format-item > label {
+.output-format-item>label {
     margin: 2px;
     font-size: 0.8rem;
 }
@@ -77,6 +77,32 @@ input[type="checkbox"]:hover {
 input[type="checkbox"] {
     accent-color: #FF9553;
     /* Sets the accent color to red */
+}
+
+/* Custom Radio Button Styling for Output Format */
+.output-format-item input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #FF9553;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    margin-right: 8px;
+    background-color: white;
+}
+
+.output-format-item input[type="checkbox"]:checked::before {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 8px;
+    height: 8px;
+    background-color: #FF9553;
+    border-radius: 50%;
 }
 
 .emotive-value {
