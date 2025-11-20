@@ -428,7 +428,7 @@ function addLoadingIndicator(element) {
   indicator.style.cssText = `
     margin: 10px 0;
     padding: 12px 16px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #F2A265;
     border-radius: 8px;
     color: white;
     font-size: 14px;
@@ -569,7 +569,7 @@ function replaceContent(element, modifiedText, originalHTML) {
     gap: 8px;
     margin-bottom: 12px;
     padding: 10px 14px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #F2A265;
     color: white;
     border-radius: 8px;
     font-size: 13px;
@@ -696,7 +696,7 @@ function replaceContent(element, modifiedText, originalHTML) {
       toggleButton.textContent = 'Show Original';
       toggleButton.style.background = 'rgba(255,255,255,0.2)';
       header.style.background =
-        'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+        '#F2A265';
     }
   });
 
