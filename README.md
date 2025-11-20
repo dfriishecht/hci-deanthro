@@ -39,10 +39,13 @@ We want to create both a way to highlight and visualize the anthropomorphic qual
 
 ## Installation Requirements
 
+You can either follow the installation steps below to build the extension yourself, or you
+can download the pre-built `build/` directory from [this google drive](https://drive.google.com/drive/folders/1heB9vJG4Mlh9yMPx6honOXnd6x89RmLQ?usp=sharing). If you go this route, you can skip to the "Loading the Extension" section.
+
 ### Prerequisites
 - **Node.js**: Version 14.18.0 or higher
 - **npm**: Comes with Node.js
-- **Google Gemini API Key**: Required for the extension to function, your key can be found here: https://makersuite.google.com/app/apikey)
+- **Google Gemini API Key**: Required for the extension to function, your key can be found here: https://makersuite.google.com/app/apikey
 
 ### Installation Steps
 
@@ -81,6 +84,6 @@ We want to create both a way to highlight and visualize the anthropomorphic qual
 
 2. **Only Works on ChatGPT**: The extension only functions on `chat.openai.com` and `chatgpt.com` domains.
 
-3. **No History Modification**: The extension only modifies new responses. It does not modify existing conversation history.
+3. **No History Retention**: The extension only modifies responses visible on the webpage, and does not store modified conversation history.
 
-4. **Browser Compatibility**: Currently only tested and designed for Google Chrome. May not work in other browsers without modifications.
+4. **Browser Compatibility**: Currently only tested and designed for Google Chrome. Will not work in other browsers without modifications.
