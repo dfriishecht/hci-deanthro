@@ -5,7 +5,7 @@ import './styles/Main.css';
 import Slider from '@rc-component/slider';
 import '@rc-component/slider/assets/index.css';
 
-import { PROMPTS } from '../utils/prompts';
+import { PROMPTS, FORMAT_PROMPTS } from '../utils/prompts';
 
 import TooltipIcon from './TooltipIcon';
 
@@ -54,7 +54,12 @@ function SettingsOne({ goToPage }) {
 
         setSentimentValue(newValue);
         // Map sentimentValue to anthropomorphize setting AND update systemPrompt
-        const newPrompt = PROMPTS[newValue] || PROMPTS[2]; // Default to level 2 if out of bounds
+        let newPrompt = PROMPTS[newValue] || PROMPTS[2]; // Default to level 2 if out of bounds
+
+        // Append format prompt if one is selected
+        if (formatValue && FORMAT_PROMPTS[formatValue]) {
+            newPrompt += `\n\n${FORMAT_PROMPTS[formatValue]}`;
+        }
 
         chrome.storage.sync.set({
             anthropomorphize: newValue,
@@ -66,10 +71,21 @@ function SettingsOne({ goToPage }) {
 
     const handleFormat = (value) => {
         setStatus("saving");
+        // Radio behavior: if clicking the same value, deselect it (null). Otherwise select the new value.
         const newValue = (formatValue === value ? null : value);
 
         setFormatValue(newValue);
-        chrome.storage.sync.set({ formatValue: newValue }, () => {
+
+        // Construct new system prompt with updated format
+        let newPrompt = PROMPTS[sentimentValue] || PROMPTS[2];
+        if (newValue && FORMAT_PROMPTS[newValue]) {
+            newPrompt += `\n\n${FORMAT_PROMPTS[newValue]}`;
+        }
+
+        chrome.storage.sync.set({
+            formatValue: newValue,
+            systemPrompt: newPrompt
+        }, () => {
             setTimeout(() => setStatus("saved"), 300);
         });
     };

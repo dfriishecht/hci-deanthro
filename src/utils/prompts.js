@@ -1,14 +1,14 @@
 export const PROMPTS = [
-    // Level 0: Original / Minimal Change
-    `Enhance the following response while maintaining its original style and tone.
+  // Level 0: Original / Minimal Change
+  `Enhance the following response while maintaining its original style and tone.
   - Fix any grammatical errors
   - Improve clarity where needed
   - Keep the original personality and structure
   
   Original response to enhance:`,
 
-    // Level 1: Slightly Reduced Sentiment
-    `Enhance the following response with these characteristics:
+  // Level 1: Slightly Reduced Sentiment
+  `Enhance the following response with these characteristics:
   - Maintain a friendly but professional tone
   - Reduce excessive enthusiasm or emojis
   - Keep the language accessible and clear
@@ -16,8 +16,8 @@ export const PROMPTS = [
   
   Original response to enhance:`,
 
-    // Level 2: Balanced (Default)
-    `Enhance the following response with these characteristics:
+  // Level 2: Balanced (Default)
+  `Enhance the following response with these characteristics:
   - Balance professionalism with approachability
   - Use clear, accessible language
   - Include helpful explanations without being condescending
@@ -29,8 +29,8 @@ export const PROMPTS = [
 
   Original response to enhance:`,
 
-    // Level 3: More Objective
-    `Enhance the following response with these characteristics:
+  // Level 3: More Objective
+  `Enhance the following response with these characteristics:
   - Prioritize objectivity and precision
   - Remove unnecessary conversational filler
   - Use direct and concise language
@@ -39,8 +39,8 @@ export const PROMPTS = [
   
   Original response to enhance:`,
 
-    // Level 4: Maximum Deanthropomorphization (Robot)
-    `Enhance the following response with these characteristics:
+  // Level 4: Maximum Deanthropomorphization (Robot)
+  `Enhance the following response with these characteristics:
   - Remove all anthropomorphic language (e.g., "I think", "I feel", "happy to help")
   - Use purely objective, third-person or passive voice where appropriate
   - Present facts and information directly
@@ -50,3 +50,22 @@ export const PROMPTS = [
   
   Original response to enhance:`
 ];
+
+export const FORMAT_PROMPTS = {
+  bullet: `
+    Format the response as a bulleted list.
+    - Use clear, short bullet points
+    - Group related items together`,
+
+  wiki: `
+    Format the response in the style of a dictionary or encyclopedia entry.
+    - Use a formal, objective tone
+    - Define key terms clearly
+    - Structure with clear headings if necessary`,
+
+  technical: `
+    Format the response for a technical or professional audience.
+    - Use precise terminology
+    - Focus on accuracy and detail
+    - Maintain a formal, professional tone`
+};
