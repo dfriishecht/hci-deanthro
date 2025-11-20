@@ -14,10 +14,11 @@
     background-color: white;
     border-radius: 10px;
     padding: 14px;
-    height: 400px;
+    min-height: 300px;
+    /* Increased height to accommodate new fields */
     display: flex;
     flex-direction: column;
-    /* Perhaps don't use this */
+    
     justify-content: space-evenly;
 }
 
@@ -40,7 +41,7 @@
     margin-top: -5px;
 }
 
-.output-format-container label{
+.output-format-container label {
     display: flex;
     flex-direction: column;
 }
@@ -53,6 +54,11 @@
 
 input[type="checkbox"]:hover {
     cursor: pointer;
+}
+
+input[type="checkbox"] {
+    accent-color: #FF9553;
+    /* Sets the accent color to red */
 }
 
 .emotive-value {
@@ -90,17 +96,86 @@ input[type="checkbox"]:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: auto;
+}
+
+.saved-status {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    font-size: 12px;
+    color: #666;
+    margin-top: 5px;
 }
 
 @media (prefers-color-scheme: dark) {
-  .setting-content {
-    background-color: #242424; /* or another dark shade */
-  }
-}
-    padding: 10px;
-    height: 400px;
+    .setting-content {
+        background-color: #242424;
+        /* or another dark shade */
+    }
 }
 
-.setting-content p {
-    color: black;
+/* Added styles for API Key and Toggle */
+.api-key-container {
+    margin-bottom: 15px;
+}
+
+.api-key-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.toggle-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.toggle-switch {
+    position: relative;
+    width: 40px;
+    height: 20px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider-toggle {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 24px;
+}
+
+.slider-toggle:before {
+    position: absolute;
+    content: '';
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked+.slider-toggle {
+    background-color: #FF9553;
+}
+
+input:checked+.slider-toggle:before {
+    transform: translateX(20px);
 }

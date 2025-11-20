@@ -26,9 +26,14 @@ export default defineManifest({
   },
   content_scripts: [
     {
-      matches: ['http://*/*', 'https://*/*'],
-      // js: ['src/contentScript/index.js'],
-      js: ['src/html_injection/index.jsx'],
+      matches: [
+        'https://chat.openai.com/*',
+        'https://chatgpt.com/*',
+        'https://*.chat.openai.com/*',
+        'https://*.chatgpt.com/*'
+      ],
+      js: ['src/contentScript/index.js'],
+      run_at: 'document_idle',
     },
   ],
   side_panel: {
@@ -40,7 +45,9 @@ export default defineManifest({
       matches: [],
     },
   ],
-  permissions: ['sidePanel', 'storage', 'scripting', 'activeTab'],
+  permissions: ['sidePanel', 'storage', 'scripting', 'activeTab',
+    'webRequest', 'webRequestBlocking', 'tabs'
+  ],
   chrome_url_overrides: {
     newtab: 'newtab.html',
   },
