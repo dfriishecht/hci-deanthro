@@ -9,7 +9,7 @@ We want to create both a way to highlight and visualize the anthropomorphic qual
 ### Use Cases
 - **Professional Use**: Users who simply prefer more objective, technical responses without the anthropomorphic language
 - **Personal Preference**: Users who find overly friendly AI responses distracting or prefer more neutral, information focused interactions
-- **Academic Research**: Could be used in reasearch related work to determine how anthropomorphic language in AI chatbots could affect human computer interaction
+- **Academic Research**: Could be used in research related work to determine how anthropomorphic language in AI chatbots could affect human computer interaction
 
 ### Basic Usage
 
