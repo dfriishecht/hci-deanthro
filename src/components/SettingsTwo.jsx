@@ -41,14 +41,6 @@ function SettingsTwo({ goToPage }) {
             />
         </div>
 
-        <div className='emotive-response-container'>
-            <h3>Emotive Response Limit:</h3>
-            <div className='set-emotive-response'>
-                <p>888</p>
-                <button className='emotive-count-inc'>inc</button>
-                <button className='emotive-count-dec'>dec</button>
-            </div>
-        </div>
 
         <div className='footer'>
             <div className='saved-status'>
