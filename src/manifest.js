@@ -1,10 +1,12 @@
-import { defineManifest } from '@crxjs/vite-plugin'
-import packageData from '../package.json' assert { type: 'json' }
+import {defineManifest} from '@crxjs/vite-plugin'
 
-const isDev = process.env.NODE_ENV == 'development'
+import packageData from '../package.json' assert {type : 'json'}
+
+                                                  const isDev = process.env.NODE_ENV == 'development'
 
 export default defineManifest({
-  name: `${packageData.displayName || packageData.name}${isDev ? ` ➡️ Dev` : ''}`,
+  name:
+      `${packageData.displayName || packageData.name}${isDev ? ` ➡️ Dev` : ''}`,
   description: packageData.description,
   version: packageData.version,
   manifest_version: 3,
@@ -27,10 +29,8 @@ export default defineManifest({
   content_scripts: [
     {
       matches: [
-        'https://chat.openai.com/*',
-        'https://chatgpt.com/*',
-        'https://*.chat.openai.com/*',
-        'https://*.chatgpt.com/*'
+        'https://chat.openai.com/*', 'https://chatgpt.com/*',
+        'https://*.chat.openai.com/*', 'https://*.chatgpt.com/*'
       ],
       js: ['src/contentScript/index.js'],
       run_at: 'document_idle',
@@ -41,13 +41,18 @@ export default defineManifest({
   },
   web_accessible_resources: [
     {
-      resources: ['img/logo-16.png', 'img/logo-32.png', 'img/logo-48.png', 'img/logo-128.png'],
+      resources: [
+        'img/logo-16.png', 'img/logo-32.png', 'img/logo-48.png',
+        'img/logo-128.png'
+      ],
       matches: [],
     },
   ],
-  permissions: ['sidePanel', 'storage', 'scripting', 'activeTab',
-    'webRequest', 'webRequestBlocking', 'tabs'
+  host_permissions: [
+    'https://chat.openai.com/*', 'https://chatgpt.com/*',
+    'https://*.chat.openai.com/*', 'https://*.chatgpt.com/*'
   ],
+  permissions: ['sidePanel', 'storage', 'scripting', 'activeTab', 'tabs'],
   chrome_url_overrides: {
     newtab: 'newtab.html',
   },
