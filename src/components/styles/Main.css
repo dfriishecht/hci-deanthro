@@ -1,5 +1,5 @@
 .ext-content {
-    background-color: orange;
+    background-color: #FF9553;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -18,8 +18,8 @@
     /* Increased height to accommodate new fields */
     display: flex;
     flex-direction: column;
-    
-    justify-content: space-evenly;
+    /* Perhaps don't use this */
+    /* justify-content: space-evenly; */
 }
 
 .feature-head {

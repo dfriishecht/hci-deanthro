@@ -1,33 +1,16 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
+
 <head>
-  <meta charset="utf-8" />
-  <title>Extension Settings</title>
-  <style>
-    body { width: 280px; padding: 12px; font-family: system-ui, sans-serif; }
-    label { display:block; margin-bottom:6px; font-size:14px; }
-    input[type="password"], input[type="text"] {
-      width:100%; padding:8px; box-sizing:border-box; margin-bottom:8px;
-      border:1px solid #ccc; border-radius:6px;
-    }
-    .row { display:flex; gap:8px; }
-    button { flex:1; padding:8px; border-radius:6px; border:0; cursor:pointer; }
-    #status { font-size:12px; margin-top:8px; color:#444; }
-  </style>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/icon/logo.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chrome Extension + React + JS + Vite</title>
 </head>
+
 <body>
-  <h4>Settings</h4>
-
-  <label for="apiKey">API key</label>
-  <input id="apiKey" type="password" placeholder="Enter API key" autocomplete="off"/>
-
-  <div class="row">
-    <button id="save">Save</button>
-    <button id="clear">Clear</button>
-  </div>
-
-  <div id="status" aria-live="polite"></div>
-
-  <script src="popup.js"></script>
+  <div id="app"></div>
+  <script type="module" src="/src/popup/index.jsx"></script>
 </body>
+
 </html>

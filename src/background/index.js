@@ -178,6 +178,8 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
       }
     }
   }
+});
+
 console.log('background running');
 
 chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
