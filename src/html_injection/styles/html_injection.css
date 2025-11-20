@@ -1,11 +1,12 @@
-h3 {
+/* h3 {
   color: #000000;
-  /* text-transform: uppercase; */
+  text-transform: uppercase; 
   font-size: 1rem;
   font-weight: bold;
   line-height: 1.2rem;
-  /* margin: 2rem auto; */
-}
+   margin: 2rem auto; 
+} 
+*/
 
 #popup{
     background-image: url("../assets/organisation-logo.png");
